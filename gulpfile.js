@@ -22,7 +22,7 @@ gulp.task("reload", () => {
 })
 
 gulp.task("watch", () => {
-    gulp.watch(paths.src, ["copyDev"])
+    gulp.watch([paths.src, paths.html], ["copyDev"])
 })
 
 gulp.task("copy", () => {
