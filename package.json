@@ -1,0 +1,20 @@
+{
+  "name": "seele",
+  "version": "1.0.0",
+  "description": "Plugin layer for cognition-framework, powered by catbus",
+  "main": "dist/seele.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+      "cognition-framework",
+      "plugins",
+      "catbus",
+      ""
+  ],
+  "author": {
+      "name": "Nick Lorenson",
+      "email": "n.e.lorenson@gmail.com"
+  },
+  "license": "Apache-2.0"
+}
