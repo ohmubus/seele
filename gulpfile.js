@@ -35,8 +35,8 @@ gulp.task("copyDev", () => {
 
 const tasks = [
     "copyDev",
-    "serve",
-    "watch"
+    "watch",
+    "serve"
 ]
 
 gulp.task("default", tasks)
