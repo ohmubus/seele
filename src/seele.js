@@ -4,9 +4,12 @@
 
     // this gets passed into each plugin. the plugin can then call it to
     // have seele destroy it at the end of its lifecycle
-    function _cyanideTooth (_agent) {
-        var _i = _agents.indexOf(_agent)
-        _agents.splice(_i, 1)
+    var _cyanideTooth = function _cyanideTooth (name, _agent) {
+        var _i = _agents[name].indexOf(_agent)
+        _agents[name].splice(_i, 1)
+
+        if (_agents[name].length === 0)
+            delete _agents[name]
     }
 
     var seele = {} // namespace
@@ -23,7 +26,10 @@
     seele.use = function (name, interface) {
         if (!Array.isArray(_agents[name]))
             _agents[name] = []
-        _agents[name].push(_hiddenCouncil[name](interface, this._cyanideTooth))
+
+        var _agent = _hiddenCouncil[name](interface, _cyanideTooth)
+
+        _agents[name].push(_agent)
     }
 
     _this.seele = seele // bind to window (or whatever)
