@@ -18,11 +18,11 @@ gulp.task("serve", () => {
 
 gulp.task("reload", () => {
     gulp.src(paths.dev).pipe(g.connect.reload())
-    gulp.watch(paths.dev, ["reload"])
 })
 
 gulp.task("watch", () => {
     gulp.watch([paths.src, paths.html], ["copyDev"])
+    gulp.watch(paths.dev, ["reload"])
 })
 
 gulp.task("copy", () => {
