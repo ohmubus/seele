@@ -23,7 +23,7 @@
     seele.use = function (name, interface) {
         if (!Array.isArray(_agents[name]))
             _agents[name] = []
-        _agantes[name].push(_hiddenCouncil[name](interface, this._cyanideTooth))
+        _agents[name].push(_hiddenCouncil[name](interface, this._cyanideTooth))
     }
 
     _this.seele = seele // bind to window (or whatever)

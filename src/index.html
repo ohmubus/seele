@@ -6,6 +6,43 @@
     <body>
         <h1> Seele </h1>
         <script src="/seele.js"></script>
+        <script >
+            (function () {
+                function barker (iface, destroy) {
+                    function bark () {
+                        console.log("BARK BARK BARK OK")
+                    }
+
+                    return (function barkerScope () {
+                        iface.on("bark", bark)
+                        iface.on("destroy", destroy)
+                    })()
+                }
+
+                function emitter () {
+                    var handlers = []
+
+                    return {
+                        on: function on (name, cb) {
+                            handlers[name] = cb
+                        },
+
+                        emit: function emit (name/*, args */) {
+                            var args = Array.prototype.slice.call(arguments, 1)
+                            handlers[name](args)
+                        }
+                    }
+                }
+
+                dogControl = emitter()
+
+                seele.register("dogBark", barker)
+                seele.use("dogBark", dogControl)
+
+                dogControl.emit("bark")
+
+            }).call(window)
+        </script>
     </body>
 
 </html>
