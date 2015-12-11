@@ -1,4 +1,4 @@
-;(function SEELE() {
+;(function SEELE (_this) {
     var _hiddenCouncil = {}
       , _agents = {}
 
@@ -22,5 +22,5 @@
         _agantes[name].push(_hiddenCouncil[name](interface, this._cyanideTooth))
     }
 
-    return seele
-})()
+    _this.seele = seele
+})(this)
