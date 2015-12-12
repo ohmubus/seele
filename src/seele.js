@@ -25,7 +25,7 @@
     // elect to use a registered plugin by name and pass the interface object
     seele.use = function (name, interface) {
         if (!_hiddenCouncil.hasOwnProperty(name))
-            throw new Error("Addressing a memeber of SEELE who is not belies your ignorance (no plugin by that name)")
+            throw new Error("Addressing a member of SEELE who is not belies your ignorance (no plugin by that name)")
 
         var _agent = _hiddenCouncil[name](interface, _falseTooth)
 
