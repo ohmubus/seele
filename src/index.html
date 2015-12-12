@@ -11,14 +11,16 @@
                 function barker (iface, destroy) {
                     function bark () {
                         console.log("BARK BARK BARK OK")
+                        iface.emit("barked", "Ok I barked")
                     }
 
                     function handleDestroy () {
-                        return destroy("dogBark", this)
+                        // do graceful shutdown here
+                        return destroy()
                     }
 
                     iface.on("bark", bark)
-                    iface.on("destroy", handleDestroy.bind(this))
+                    iface.on("destroy", handleDestroy)
                     iface.on("destroy", console.log.bind(console, "barker given destroy order"))
 
                     return this
@@ -51,6 +53,7 @@
                 seele.register("dogBark", barker)
                 seele.use("dogBark", dogControl)
 
+                dogControl.on("barked", function (msg) { console.log(msg) })
                 dogControl.emit("bark")
                 dogControl.emit("destroy")
 

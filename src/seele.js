@@ -4,7 +4,7 @@
 
     // this gets passed into each plugin. the plugin can then call it to
     // have seele destroy it at the end of its lifecycle
-    var _cyanideTooth = function _cyanideTooth (name, _agent) {
+    var _cyanideCapsule = function _cyanideCapsule (name, _agent) {
         var _i = _agents[name].indexOf(_agent)
         _agents[name].splice(_i, 1)
 
@@ -27,7 +27,11 @@
         if (!_hiddenCouncil.hasOwnProperty(name))
             throw new Error("Addressing a memeber of SEELE who is not belies your ignorance (no plugin by that name)")
 
-        var _agent = _hiddenCouncil[name](interface, _cyanideTooth)
+        var _agent = _hiddenCouncil[name](interface, _falseTooth)
+
+        function _falseTooth () {
+            _cyanideCapsule(name, _agent)
+        }
 
         if (!Array.isArray(_agents[name]))
             _agents[name] = []
