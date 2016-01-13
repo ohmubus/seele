@@ -67,4 +67,4 @@
 
     context.seele = seele; // bind to outer context
 
-})(context);
+})(this);
