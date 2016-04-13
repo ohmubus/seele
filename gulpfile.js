@@ -2,8 +2,8 @@ const g     = require("gulp-load-plugins")()
     , gulp  = require("gulp")
 
 const paths = {
-    src: "src/seele.js",
-    html: "src/index.html",
+    src: "seele.js",
+    html: "index.html",
     dev: "dev",
     dest: "dist"
 }
