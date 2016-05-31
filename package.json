@@ -1,6 +1,6 @@
 {
   "name": "seele",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Plugin layer for cognition-framework, powered by catbus",
   "main": "seele.js",
   "scripts": {
